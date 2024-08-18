@@ -1,0 +1,49 @@
+package pet.store.entity;
+/*
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@Entity
+@Data
+public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long employeeId;
+
+    private Long petStoreId;
+    private String employeeFirstName;
+    private String employeeLastName;
+    private String employeePhone;
+    private String employeeJobTitle;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pet_store_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private PetStore petStore;
+}
+*/
+
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@Entity
+@Data
+public class Employee<PetStore> {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long employeeId;
+
+    private String employeeFirstName;
+    private String employeeLastName;
+    private String employeePhone;
+    private String employeeJobTitle;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pet_store_id")
+    private PetStore petStore;
+}
